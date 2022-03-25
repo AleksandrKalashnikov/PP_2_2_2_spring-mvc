@@ -3,22 +3,22 @@ package web.model;
 import java.util.Objects;
 
 public class Car {
-    private String model;
+    private String brand;
     private String color;
     private int year;
 
-    public Car(String model, String color, int age) {
-        this.model = model;
+    public Car(String brand, String color, int age) {
+        this.brand = brand;
         this.color = color;
         this.year = age;
     }
 
-    public String getName() {
-        return model;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setName(String model) {
-        this.model = model;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getColor() {
@@ -29,18 +29,18 @@ public class Car {
         this.color = color;
     }
 
-    public int getAge() {
+    public int getYear() {
         return year;
     }
 
-    public void setAge(int year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "model='" + model + '\'' +
+                "brand='" + brand + '\'' +
                 ", color='" + color + '\'' +
                 ", year=" + year +
                 '}';
@@ -55,12 +55,12 @@ public class Car {
             return false;
         }
         Car car = (Car) o;
-        return year == car.year && Objects.equals(model, car.model)
+        return year == car.year && Objects.equals(brand, car.brand)
                 && Objects.equals(color, car.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(model, color, year);
+        return Objects.hash(brand, color, year);
     }
 }
