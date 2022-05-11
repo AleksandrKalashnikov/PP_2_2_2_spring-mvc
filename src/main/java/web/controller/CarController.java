@@ -8,14 +8,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import web.model.Car;
 import web.service.CarService;
-import web.service.CarServiceImpl;
 
 import java.util.List;
 
 @Controller
 public class CarController {
 
-    private CarService carService = new CarServiceImpl();
+    private CarService carService;
+
+    @Autowired
+    public CarController (CarService carService) {
+        this.carService = carService;
+    }
 
     @GetMapping(value = "/cars")
     public String printCar(@RequestParam(value = "count", required = false, defaultValue = "5")
